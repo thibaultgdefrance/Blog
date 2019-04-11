@@ -1,0 +1,247 @@
+﻿/* Move down content because we have a fixed navbar that is 50px tall */
+html, body {
+    height: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    background-image: url(//www.laphotoculinaire.com/wp-content/uploads/2016/08/bg_pattern3.png);
+    padding: 0px;
+    margin: 0px;
+}
+
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+@keyframes couleurLien{
+    from{
+        color:black;
+    }
+    to{
+        color:white;
+    }
+}
+@keyframes couleurRecherche{
+    from {
+        
+    }
+    to{
+        border:1px solid white;
+    }
+}
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.lienOnglet{
+    color:black;
+}
+.lienOnglet:hover{
+    animation-name:couleurLien;
+    animation-duration:0.3s;
+    animation-fill-mode:forwards;
+}
+.banderole {
+    height: 450px;
+    width: 100%;
+    background-image: url(/media/nature.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    display: table;
+    text-align: center;
+    vertical-align: auto;
+    padding-top: 10%;
+}
+
+.panneauGauche{
+   
+    
+    padding:2em;
+
+}
+.panneauArticle {
+    
+    height: 800px;
+    
+    padding-top: 2em;
+}
+.contentGauche{
+    
+    height:100%;
+    width:100%;
+    
+}
+.vignetteGauche {
+    background-color: white;
+    width: 100%;
+    height: 480px;
+    text-align: center;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-shadow: 2px 2px 2px 2px grey;
+    overflow:hidden;
+}
+
+.vignettePub {
+    background-color: white;
+    box-shadow: 2px 2px 2px 2px grey;
+    width:100%;
+    height:277px;
+    margin-top:30px;
+}
+
+.imgPub{
+    
+    width:100%;
+}
+.vignetteCategorie {
+    background-color: white;
+    width: 100%;
+    height: 480px;
+    text-align: center;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-shadow: 2px 2px 2px 2px grey;
+    margin-top:30px;
+    overflow:auto;
+}
+.listeCategorie{
+    text-align:start;
+}
+.qui{
+    border:1px solid grey;
+    font-size:30px;
+    color:#aaaaaa;
+    padding-top:7px;
+    padding-bottom:7px;
+    padding-right:10px;
+    padding-left:10px;
+    box-shadow:3px 3px 3px 3px #aaaaaa ;
+    width:90%;
+}
+.profil {
+    border-radius:50%;
+    height:150px;
+    width:150px;
+}
+
+.contentDroit {
+    
+    height: 100%;
+    width: 100%;
+}
+
+.vignetteDroite {
+    padding:1em;
+    width: 100%;
+    height: 600px;
+    background-color: white;
+    box-shadow: 2px 2px 2px 2px grey;
+    overflow:hidden;
+}
+
+.photoArticle {
+    width: 45%;
+    height: 100%;
+    background-image: url(/media/cascade.jpg);
+    float: left;
+    margin-right:10px;
+}
+.cadreNoir {
+    position: absolute;
+    left: 40%;
+    top:100px;
+    
+    height: 100px;
+    width: 50%;
+    padding: 2px;
+    border: 2px solid #1a2f3a;
+
+}
+.vignetteNoire {
+    height: 100%;
+    width: 100%;
+    background-color: #1a2f3a;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+.contentArticle{
+    margin-top:30%;
+    height:20px;
+}
+.textArticle{
+   
+    height:80px;
+    overflow:hidden;
+
+}
+.suite {
+    background-color: black;
+    color: white;
+    box-shadow: 3px 3px 3px 3px #3E3E3E;
+    border: none;
+}
+.titre {
+    font-size: 4em;
+}
+.navigation {
+    background-color: rgb(255, 205, 12);
+    height: 50px;
+    display: block;
+    font-family: Georgia;
+    
+    font-size: 20px ;
+    box-shadow: 0 1px 2px 2px gray;
+    overflow:hidden;
+}
+#recherche {
+    background-color: rgb(255, 205, 12);
+    border: none;
+    height:70%;
+    
+
+}
+#recherche:hover {
+    animation-name: couleurRecherche;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.onglet{
+    color:black;
+}
+.footer{
+    margin-top : 4em;
+    margin-bottom: 4em;
+    height:210px;
+    
+    width:100%;
+}
+
+.imgFooter{
+    height:210px;
+    width:210px;
+    border-right:1px;
+    border-left:1px;
+}
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        margin-top: 20px;
+    }
+
+    .body-content {
+        padding: 0;
+    }
+}
