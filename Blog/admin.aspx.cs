@@ -11,6 +11,8 @@ namespace Blog
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Rubrique rubrique = new Rubrique();
+
             String urlActuelle = HttpContext.Current.Request.Path;
             if (Request.Cookies.Get("userNiveau")== null && Session["email"]==null)
             {

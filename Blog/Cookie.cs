@@ -7,20 +7,20 @@ namespace Blog
 {
     public class Cookie : System.Web.UI.Page
     {
-        public void enregistrerCookies()
+        public void enregistrerCookies(String nom , String value)
         {
-
+           
+            
+            HttpCookie httpCookie = new HttpCookie(nom,value);
+            HttpContext.Current.Response.Cookies.Add(httpCookie);
         }
-        public void supprimerCookies()
+        public void supprimerCookies(String nom)
         {
-            HttpCookie emailBlog = new HttpCookie("userEmail");
-            Request.Cookies.Add(emailBlog);
-            emailBlog.Expires = DateTime.Now.AddDays(-1);
 
-            HttpCookie userNiveau = new HttpCookie("userNiveau");
-            Request.Cookies.Add(userNiveau);
-            userNiveau.Expires = DateTime.Now.AddDays(-1);
-
+            HttpCookie httpCookie = new HttpCookie(nom, "");
+            HttpContext.Current.Response.Cookies.Add(httpCookie);
+            httpCookie.Expires = DateTime.Now;
+            
 
         }
     }
