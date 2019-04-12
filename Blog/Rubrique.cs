@@ -10,18 +10,18 @@ namespace Blog
     public class Rubrique
     {
         int IdRubrique = 0;
-        String cnx = @"Data Source=STA6018699\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        String cnx = @"Data Source=STA6018699\SQLEXPRESS;Initial Catalog = Blog; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         String IntituleRubrique = "";
         public Rubrique()
         {
 
         }
 
-        public int creerRubrique(String Intitule)
+        public int creerRubrique(string Intitule)
         {
             SqlConnection sqlConnection = new SqlConnection(cnx);
             sqlConnection.Open();
-            String req = "insert into dbo.Rubrique(LibelleRubrique) values(@LibelleRubrique)";
+            string req = "insert into dbo.Rubrique (IntituleRubrique) values(@LibelleRubrique)";
             SqlCommand sqlCommand = new SqlCommand(req, sqlConnection);
             sqlCommand.Parameters.AddWithValue("@LibelleRubrique", Intitule);
             
@@ -32,7 +32,7 @@ namespace Blog
             return result;
         }
 
-        public int modifierRubrique(int IdRubrique,String Intitule)
+        public int modifierRubrique(int IdRubrique,string Intitule)
         {
             SqlConnection sqlConnection = new SqlConnection(cnx);
             sqlConnection.Open();

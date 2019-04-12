@@ -13,6 +13,7 @@ namespace Blog
             
             HttpCookie httpCookie = new HttpCookie(nom,value);
             HttpContext.Current.Response.Cookies.Add(httpCookie);
+
         }
         public void supprimerCookies(String nom)
         {

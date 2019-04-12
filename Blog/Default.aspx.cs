@@ -28,10 +28,14 @@ namespace Blog
             //    HttpCookie userNiveau = Request.Cookies.Get("userNiveau");
             //    userNiveau.Expires = DateTime.Now.AddDays(-1);
             //}
-
-
+            
+           
+            
+            Panel Article = new Panel();
+            Article.CssClass = "vignetteDroite";
+            
         }
-
+        
         protected void btnDeconnexion_Click(object sender, EventArgs e)
         {
             Session.Abandon();

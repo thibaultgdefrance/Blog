@@ -76,8 +76,7 @@ namespace Blog
                             emailBlog.Expires = DateTime.Now.AddMonths(1);
                             Request.Cookies.Add(emailBlog);
                             Response.Redirect("/admin.aspx");
-                            Cookie truc = new Cookie();
-                            truc.supprimerCookies();
+                            
                         }
 
                         //HttpCookie myCookie = new HttpCookie("myCookie", TxtbLogin.Text);
