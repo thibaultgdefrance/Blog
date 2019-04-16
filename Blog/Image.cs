@@ -44,6 +44,25 @@ namespace Blog
             
         }
 
+        public string selectImage(int IdArticle,int numPhoto)
+        {
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(cnx);
+                sqlConnection.Open();
+                SqlCommand cmd = new SqlCommand("select top(@numPhoto) UrlImage from dbo.Image where IdArticle = @IdArticle");
+                cmd.Parameters.AddWithValue("@IdArticle",IdArticle);
+                cmd.Parameters.AddWithValue("@numPhoto", numPhoto);
+                string result=cmd.ExecuteNonQuery().ToString();
+                sqlConnection.Close();
+                return result;
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+            return "ok";
+        }
     }
 }

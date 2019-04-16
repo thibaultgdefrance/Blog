@@ -9,6 +9,7 @@ namespace Blog
 {
     public class Article
     {
+        public int IdArticle = 0;
         public String Titre="";
         public String Description="";
         public String Text="";

@@ -111,5 +111,28 @@ namespace Blog
            
             return reader;
         }
+
+        public string selectRubrique(int IdRubrique)
+        {
+            try
+            {
+                Rubrique rubrique = new Rubrique();
+                
+                SqlConnection sqlConnection = new SqlConnection(cnx);
+                sqlConnection.Open();
+                SqlCommand cmd = new SqlCommand("select IntituleRubrique From dbo.Rubrique where IdRubrique=@IdRubrique", sqlConnection);
+                cmd.Parameters.AddWithValue("@IdRubrique", IdRubrique);
+                string result = cmd.ExecuteNonQuery().ToString();
+
+                sqlConnection.Close();
+                return result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
     }
 }

@@ -154,7 +154,7 @@ textarea {
 .photoArticle {
     width: 45%;
     height: 100%;
-    background-image: url(/media/cascade.jpg);
+    /*background-image: url(/media/cascade.jpg);*/
     float: left;
     
 }

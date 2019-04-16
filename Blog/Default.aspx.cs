@@ -13,37 +13,65 @@ namespace Blog
         protected void Page_Load(object sender, EventArgs e)
         {
             Article article = new Article();
+            Rubrique rubrique = new Rubrique();
+
             lbTest.Text = article.SelectArticle().ToString();
             List<Article> listeArticles2 = new List<Article>();
             listeArticles2 = article.SelectArticle();
 
             foreach (var item in listeArticles2)
             {
+                Panel contentDroit = new Panel();
+                contentDroit.CssClass = "contentDroit";
+                panneauArticle.Controls.Add(contentDroit);
                 Panel vignetteDroite = new Panel();
                 vignetteDroite.CssClass="vignetteDroite";
-                panneauArticle.Controls.Add(vignetteDroite);
+                contentDroit.Controls.Add(vignetteDroite);
                 Panel photoArticle = new Panel();
                 photoArticle.CssClass = "photoArticle";
+                vignetteDroite.Controls.Add(photoArticle);
+                //Image img = new Image();
+                //img.=img.selectImage(item.IdArticle,1);
+                //photoArticle.Controls.Add(img);
                 Panel cadreNoir = new Panel();
                 cadreNoir.CssClass = "cadreNoir";
                 vignetteDroite.Controls.Add(cadreNoir);
                 Panel vignetteNoire = new Panel();
                 vignetteNoire.CssClass = "vignetteNoire";
                 cadreNoir.Controls.Add(vignetteNoire);
+                HtmlGenericControl rubriqueArticle=new HtmlGenericControl("p");
+                rubriqueArticle.InnerText = rubrique.selectRubrique(article.IdRubrique);
+                HtmlGenericControl titreArticle = new HtmlGenericControl("p");
+                titreArticle.InnerText = item.Titre;
+                vignetteNoire.Controls.Add(titreArticle);
+                HtmlGenericControl descriptionArticle = new HtmlGenericControl("p");
+                descriptionArticle.InnerText = item.Description;
+                vignetteNoire.Controls.Add(descriptionArticle);
+                HtmlGenericControl datePublication = new HtmlGenericControl("p");
+                datePublication.InnerText = article.DatePublication.ToString();
+                vignetteNoire.Controls.Add(datePublication);
                 Panel contentArticle = new Panel();
                 contentArticle.CssClass = "contentArticle";
-                vignetteDroite.Controls.Add(photoArticle);
-                
-                HtmlGenericControl img = new HtmlGenericControl("img");
-                Panel textArticle = new Panel();
-                textArticle.CssClass = "textArticle";
-                vignetteDroite.Controls.Add(textArticle);
-                HtmlGenericControl texte = new HtmlGenericControl("p");
-                texte.InnerText = item.Text;
-                textArticle.Controls.Add(texte);
-                photoArticle.Controls.Add(img);
-                
                 vignetteDroite.Controls.Add(contentArticle);
+                Panel texteArticle = new Panel();
+                texteArticle.CssClass = "textArticle";
+                contentArticle.Controls.Add(texteArticle);
+                HtmlGenericControl textArticle = new HtmlGenericControl("p");
+                textArticle.InnerText = item.Text;
+                texteArticle.Controls.Add(textArticle);
+                Button buttonSuite = new Button();
+                buttonSuite.CssClass = "suite";
+                buttonSuite.Text = "Lire la suite";
+                contentArticle.Controls.Add(buttonSuite);
+                //Panel textArticle = new Panel();
+                //textArticle.CssClass = "textArticle";
+                //vignetteDroite.Controls.Add(textArticle);
+                //HtmlGenericControl texte = new HtmlGenericControl("p");
+                //texte.InnerText = item.Text;
+                //textArticle.Controls.Add(texte);
+                //photoArticle.Controls.Add(img);
+                
+                
                 
                 
                 
