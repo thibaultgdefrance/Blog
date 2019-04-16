@@ -57,6 +57,7 @@ namespace Blog
             while (reader.Read())
             {
                 Article article = new Article();
+                article.IdArticle = Int32.Parse(reader[0].ToString());
                 article.Titre =reader[1].ToString();
                 article.Description =reader[2].ToString();
                 article.Text=reader[3].ToString();

@@ -50,19 +50,31 @@ namespace Blog
             {
                 SqlConnection sqlConnection = new SqlConnection(cnx);
                 sqlConnection.Open();
-                SqlCommand cmd = new SqlCommand("select top(@numPhoto) UrlImage from dbo.Image where IdArticle = @IdArticle");
-                cmd.Parameters.AddWithValue("@IdArticle",IdArticle);
-                cmd.Parameters.AddWithValue("@numPhoto", numPhoto);
-                string result=cmd.ExecuteNonQuery().ToString();
-                sqlConnection.Close();
-                return result;
+                SqlCommand cmd2 = new SqlCommand("select count(*) from dbo.Image where IdArticle = @IdArticle",sqlConnection);
+                cmd2.Parameters.AddWithValue("@IdArticle",IdArticle);
+                int result2 = Int32.Parse(cmd2.ExecuteScalar().ToString());
+                if (result2>0)
+                {
+                    SqlCommand cmd = new SqlCommand("select top(@numPhoto)UrlImage from dbo.Image where IdArticle = @IdArticle", sqlConnection);
+                    cmd.Parameters.AddWithValue("@IdArticle", IdArticle);
+                    cmd.Parameters.AddWithValue("@numPhoto", numPhoto);
+                    string result = cmd.ExecuteScalar().ToString();
+                    sqlConnection.Close();
+                    return result;
+                }
+                else
+                {
+                    sqlConnection.Close();
+                    return "office-1516329_960_720.jpg";
+                }
+               
             }
             catch (Exception)
             {
 
                 throw;
             }
-            return "ok";
+            
         }
     }
 }

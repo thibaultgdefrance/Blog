@@ -149,24 +149,34 @@ textarea {
     background-color: white;
     box-shadow: 2px 2px 2px 2px grey;
     overflow:hidden;
+    margin-top:50px;
 }
 
 .photoArticle {
     width: 45%;
     height: 100%;
-    /*background-image: url(/media/cascade.jpg);*/
-    float: left;
     
+    float: left;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+
+.img{
+    width:45%;
+    height:570px;
 }
 .cadreNoir {
     
     margin-left: 40%;
-    top:100px;
+    top:10px;
     margin-top:20px;
     height: 100px;
     width: 50%;
     padding: 2px;
     border: 2px solid #1a2f3a;
+    position:relative;
+    
   
 }
 .vignetteNoire {
@@ -177,21 +187,29 @@ textarea {
     text-align: center;
     
 }
+
+.rubriqueArticle {
+    font-style:italic;
+    font-size:10px;
+}
+
+
 .contentArticle{
     margin-top:30%;
     height:20px;
 }
 .textArticle{
-   
-    height:80px;
+    padding:10px;
+    height:150px;
     overflow:hidden;
 
 }
 .suite {
-    background-color: black;
+    background-color: #1a2f3a;
     color: white;
-    box-shadow: 3px 3px 3px 3px #3E3E3E;
+    box-shadow: 3px 3px 3px 1px #3E3E3E;
     border: none;
+    margin: 50px;
 }
 .titre {
     font-size: 4em;

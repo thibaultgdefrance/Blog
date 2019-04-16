@@ -75,7 +75,6 @@ C:\Users\afpa\source\repos\Blog\Blog\obj\Debug\Blog.csproj.CoreCompileInputs.cac
 C:\Users\afpa\source\repos\Blog\Blog\obj\Debug\Blog.csproj.CopyComplete
 C:\Users\afpa\source\repos\Blog\Blog\obj\Debug\Blog.dll
 C:\Users\afpa\source\repos\Blog\Blog\obj\Debug\Blog.pdb
-C:\inetpub\wwwroot\Blog\Blog\obj\Debug\Blog.csprojAssemblyReference.cache
 C:\inetpub\wwwroot\Blog\Blog\obj\Debug\Blog.csproj.CoreCompileInputs.cache
 C:\inetpub\wwwroot\Blog\Blog\obj\Debug\Blog.dll
 C:\inetpub\wwwroot\Blog\Blog\obj\Debug\Blog.pdb
@@ -152,3 +151,4 @@ C:\inetpub\wwwroot\Blog\Blog\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatf
 C:\inetpub\wwwroot\Blog\Blog\bin\fr\System.Web.Optimization.resources.dll
 C:\inetpub\wwwroot\Blog\Blog\bin\fr\Microsoft.AspNet.FriendlyUrls.resources.dll
 C:\inetpub\wwwroot\Blog\Blog\obj\Debug\Blog.csproj.CopyComplete
+C:\inetpub\wwwroot\Blog\Blog\obj\Debug\Blog.csprojAssemblyReference.cache

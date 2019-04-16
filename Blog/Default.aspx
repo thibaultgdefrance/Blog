@@ -50,7 +50,7 @@
                 
             </asp:panel>
             <asp:panel runat="server" id="panneauArticle" class="panneauArticle col-md-5 offset-md-1 pl-0 pr-0">
-                <div class="contentDroit ">
+               <%-- <div class="contentDroit ">
                     <div class="vignetteDroite">
                         <div class="photoArticle">
 
@@ -74,8 +74,8 @@
                             <hr />
                             <hr />
                         </div>
-                    </div>
-                </div>
+                    </div>--%>
+                <%--</div>--%>
             </asp:panel>
             <div class="carouselArticle">
 

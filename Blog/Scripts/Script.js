@@ -36,3 +36,15 @@ var accueil = document.getElementById("accueil");
 function redirect(url) {
     window.location.replace(url);
 }
+
+
+
+
+var suite = document.getElementsByClassName("suite");
+var articleTexte = document.getElementsByClassName("textArticle");
+
+for (var i = 0; i < suite.length; i++) {
+    suite[i].addEventListener("click", function red() {
+        console.log("ok "+i);
+    });
+}

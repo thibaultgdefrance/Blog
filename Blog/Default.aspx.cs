@@ -14,7 +14,7 @@ namespace Blog
         {
             Article article = new Article();
             Rubrique rubrique = new Rubrique();
-
+            Image imageArticle = new Image();
             lbTest.Text = article.SelectArticle().ToString();
             List<Article> listeArticles2 = new List<Article>();
             listeArticles2 = article.SelectArticle();
@@ -29,9 +29,12 @@ namespace Blog
                 contentDroit.Controls.Add(vignetteDroite);
                 Panel photoArticle = new Panel();
                 photoArticle.CssClass = "photoArticle";
+                photoArticle.BackImageUrl= "/media/" + imageArticle.selectImage(item.IdArticle, 1);
                 vignetteDroite.Controls.Add(photoArticle);
-                //Image img = new Image();
-                //img.=img.selectImage(item.IdArticle,1);
+                System.Web.UI.WebControls.Image img = new System.Web.UI.WebControls.Image();
+                //img.CssClass = "img";
+                //img.ImageUrl = "/media/"+imageArticle.selectImage(item.IdArticle, 1);
+                
                 //photoArticle.Controls.Add(img);
                 Panel cadreNoir = new Panel();
                 cadreNoir.CssClass = "cadreNoir";
@@ -39,8 +42,10 @@ namespace Blog
                 Panel vignetteNoire = new Panel();
                 vignetteNoire.CssClass = "vignetteNoire";
                 cadreNoir.Controls.Add(vignetteNoire);
-                HtmlGenericControl rubriqueArticle=new HtmlGenericControl("p");
-                rubriqueArticle.InnerText = rubrique.selectRubrique(article.IdRubrique);
+                Label rubriqueArticle=new Label();
+                rubriqueArticle.CssClass = "rubriqueArticle";
+                rubriqueArticle.Text = "*"+rubrique.selectRubrique(item.IdRubrique)+"*";
+                vignetteNoire.Controls.Add(rubriqueArticle);
                 HtmlGenericControl titreArticle = new HtmlGenericControl("p");
                 titreArticle.InnerText = item.Titre;
                 vignetteNoire.Controls.Add(titreArticle);
@@ -59,7 +64,7 @@ namespace Blog
                 HtmlGenericControl textArticle = new HtmlGenericControl("p");
                 textArticle.InnerText = item.Text;
                 texteArticle.Controls.Add(textArticle);
-                Button buttonSuite = new Button();
+                Label buttonSuite = new Label();
                 buttonSuite.CssClass = "suite";
                 buttonSuite.Text = "Lire la suite";
                 contentArticle.Controls.Add(buttonSuite);

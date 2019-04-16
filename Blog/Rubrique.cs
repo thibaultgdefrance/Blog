@@ -122,10 +122,11 @@ namespace Blog
                 sqlConnection.Open();
                 SqlCommand cmd = new SqlCommand("select IntituleRubrique From dbo.Rubrique where IdRubrique=@IdRubrique", sqlConnection);
                 cmd.Parameters.AddWithValue("@IdRubrique", IdRubrique);
-                string result = cmd.ExecuteNonQuery().ToString();
+                string result = cmd.ExecuteScalar().ToString();
 
                 sqlConnection.Close();
                 return result;
+                
             }
             catch (Exception)
             {
