@@ -23,3 +23,16 @@ function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 }
+
+
+var accueil = document.getElementsByTagName;
+var contact = document.getElementById("contact");
+var connection = document.getElementById("connexion");
+var accueil = document.getElementById("accueil");
+
+//accueil.addEventListener("Click", redirect("Default.aspx"),true);
+//connection.addEventListener("click", redirect("connexion.aspx"),true);
+
+function redirect(url) {
+    window.location.replace(url);
+}

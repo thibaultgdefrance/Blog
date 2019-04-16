@@ -23,13 +23,25 @@ namespace Blog
 
         public void ajouterImage(String UrlImage, DateTime DatePublication, String DescriptionImage, int IdArticle)
         {
-            SqlConnection sqlConnection = new SqlConnection(cnx);
-            String cmdAjout = "Insert into dbo.Image (UrlImage,DatePublication,DescriptionImage,IdArticle)values(@UrlImage,@DatePublication,@DescriptionImage,@IdArticle)";
-            SqlCommand ajout = new SqlCommand(cmdAjout, sqlConnection);
-            ajout.Parameters.AddWithValue("@UrlImage",UrlImage);
-            ajout.Parameters.AddWithValue("@DatePublication", DateTime.Now);
-            ajout.Parameters.AddWithValue("@DescriptionImage", "");
-            ajout.Parameters.AddWithValue("@IdArticle", IdArticle);
+            
+            string[] listImages = new string[800];
+            listImages = UrlImage.Split('|');
+            foreach (var item in listImages)
+            {
+                SqlConnection sqlConnection = new SqlConnection(cnx);
+                sqlConnection.Open();
+                String cmdAjout = "Insert into dbo.Image (UrlImage,DatePublication,DescriptionImage,IdArticle)values(@UrlImage,@DatePublication,@DescriptionImage,@IdArticle)";
+                SqlCommand ajout = new SqlCommand(cmdAjout, sqlConnection);
+                ajout.Parameters.AddWithValue("@UrlImage", item);
+                ajout.Parameters.AddWithValue("@DatePublication", DateTime.Now);
+                ajout.Parameters.AddWithValue("@DescriptionImage", DescriptionImage);
+                ajout.Parameters.AddWithValue("@IdArticle", IdArticle);
+                ajout.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+
+
+            
         }
 
 

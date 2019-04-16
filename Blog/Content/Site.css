@@ -156,18 +156,18 @@ textarea {
     height: 100%;
     background-image: url(/media/cascade.jpg);
     float: left;
-    margin-right:10px;
+    
 }
 .cadreNoir {
-    position: absolute;
-    left: 40%;
-    top:100px;
     
+    margin-left: 40%;
+    top:100px;
+    margin-top:20px;
     height: 100px;
     width: 50%;
     padding: 2px;
     border: 2px solid #1a2f3a;
-
+  
 }
 .vignetteNoire {
     height: 100%;
@@ -175,7 +175,7 @@ textarea {
     background-color: #1a2f3a;
     color: white;
     text-align: center;
-    overflow: hidden;
+    
 }
 .contentArticle{
     margin-top:30%;
@@ -225,7 +225,7 @@ textarea {
     margin-top : 4em;
     margin-bottom: 4em;
     height:210px;
-    
+    display:none;
     width:100%;
 }
 

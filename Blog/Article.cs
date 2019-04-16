@@ -9,6 +9,15 @@ namespace Blog
 {
     public class Article
     {
+        public String Titre="";
+        public String Description="";
+        public String Text="";
+        public String DatePublication="";
+        public String DateModif="";
+        public int Popularite=0;
+        public int IdAuteur;
+        public int IdStatut;
+        public int IdRubrique;
         public Article(){
         
         }
@@ -34,7 +43,35 @@ namespace Blog
             sqlConnection.Close();
             return idArticle;
         }
-
+        public List<Article> SelectArticle()
+        {
+            List<Article> listArticles = new List<Article>();
+            SqlConnection sqlConnection = new SqlConnection(cnx);
+            sqlConnection.Open();
+            String req = "Select * From dbo.Article ";
+            SqlCommand sqlCommand = new SqlCommand(req, sqlConnection);
+            //String result=sqlCommand.ExecuteScalar().ToString();
+            
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                Article article = new Article();
+                article.Titre =reader[1].ToString();
+                article.Description =reader[2].ToString();
+                article.Text=reader[3].ToString();
+                article.DatePublication = reader[4].ToString();
+                article.DateModif = reader[5].ToString();
+                article.Popularite = Int32.Parse( reader[6].ToString());
+                article.IdAuteur = Int32.Parse(reader[7].ToString());
+                article.IdStatut = Int32.Parse(reader[8].ToString());
+                article.IdRubrique = Int32.Parse(reader[9].ToString());
+                listArticles.Add(article);
+            }
+            
+            
+            sqlConnection.Close();
+            return listArticles;
+        }
         public int ModifierArticle(String TitreArticle, String DescriptionArticle, String TexteArticle, String DatePublication, String DateModif, int Popularite, int IdAuteur, int IdStatut, int IdRubrique)
         {
             SqlConnection sqlConnection = new SqlConnection(cnx);
@@ -59,14 +96,35 @@ namespace Blog
 
         public int supprimerArticle(int IdArticle)
         {
-            SqlConnection sqlConnection = new SqlConnection(cnx);
-            sqlConnection.Open();
-            String req = "Delete from dbo.Article where IdArticle = @IdArticle";
-            SqlCommand sqlCommand = new SqlCommand(req,sqlConnection);
-            sqlCommand.Parameters.AddWithValue("@IdArticle", IdArticle);
-            int Result = sqlCommand.ExecuteNonQuery();
-            sqlConnection.Close();
-            return Result;
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(cnx);
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlConnection.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(cnx);
+                sqlConnection.Open();
+                String req = "Delete from dbo.Article where IdArticle = @IdArticle";
+                SqlCommand sqlCommand = new SqlCommand(req, sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@IdArticle", IdArticle);
+                int Result = sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+                return Result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
         public DataTable listArticleAdmin()

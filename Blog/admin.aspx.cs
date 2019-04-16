@@ -71,14 +71,27 @@ namespace Blog
 
         protected void btnAjoutArticle_Click(object sender, EventArgs e)
         {
-       
-            Article article = new Article();
-            int result = article.creerArticle(txtbTitre.Text, txtbDescription.Text, textArticle.Text, DateTime.Now.ToShortDateString(), DateTime.Now.ToShortDateString(), 5, 2, Int32.Parse(ddlStatut.SelectedValue), Int32.Parse(ddlRubrique.SelectedValue));
-
             try
             {
-                Image image = new Image();
-                image.ajouterImage(lbListeImages.Text, DateTime.Now, "", result);
+                string[] nbrImages = new string[800];
+                nbrImages = lbListeImages.Text.Split('|');
+                if (nbrImages.Length > 2)
+                {
+                    lbErreure.Text = "Seulement deux images autorisées par article";
+                
+                    lbListeImages.Text = "";
+                }
+                else
+                {
+                    Article article = new Article();
+                    int result = article.creerArticle(txtbTitre.Text, txtbDescription.Text, textArticle.Text, DateTime.Now.ToShortDateString(), DateTime.Now.ToShortDateString(), 5, 2, Int32.Parse(ddlStatut.SelectedValue), Int32.Parse(ddlRubrique.SelectedValue));
+
+                    Image image = new Image();
+                    image.ajouterImage(lbListeImages.Text, DateTime.Now, "", result);
+                }
+                
+               
+                
             }
             catch (Exception)
             {
@@ -99,7 +112,7 @@ namespace Blog
                 {
                     fuAjouterImage.SaveAs(repImages + fichier);
                     listImages.Add(repImages + fichier);
-                    lbListeImages.Text += fichier+"br/";
+                    lbListeImages.Text += fichier+"|";
                 }
                 catch (Exception ex)
                 {

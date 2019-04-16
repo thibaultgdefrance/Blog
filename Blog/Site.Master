@@ -16,6 +16,7 @@
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script src="Scripts/Script.js"></script>
 
 </head>
 <body>
@@ -47,10 +48,10 @@
             
             <div id="navigation" class="row navigation">
                 
-                <span class="onglet col-md-1 offset-md-4"><a class="lienOnglet">accueil</a></span>
-                <span class="onglet col-md-1"><a class="lienOnglet">contactez-moi </a></span>
-                <span class="onglet col-md-1"><a class="lienOnglet">connexion </a></span>
-                <span class="onglet col-md-1"><a class="lienOnglet">categorie </a></span>
+                <span class="onglet col-md-1 offset-md-4" id="accueil" onClick=redirect("Default.aspx")><a class="lienOnglet">accueil</a></span>
+                <span class="onglet col-md-1" id="contact"><a class="lienOnglet"  >contactez-moi </a></span>
+                <span class="onglet col-md-1" id="connexion" onClick=redirect("connexion.aspx")><a class="lienOnglet" >connexion </a></span>
+                <span class="onglet col-md-1" id ="categorie"><a class="lienOnglet" >categorie </a></span>
                 <span class="onglet col-md-1">
                     <input id="recherche" type="text" placeholder="recherche" />
                 </span>

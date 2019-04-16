@@ -8,10 +8,11 @@
     
     <asp:Button ID="btnDeconnexion" runat="server" OnClick="btnDeconnexion_Click" Text="Deconnexion" />
     <asp:Label ID="lbCookie" runat="server"></asp:Label>
+    <asp:Label ID="lbTest" runat="server" ForeColor="#009933"></asp:Label>
     <div class="container-fluid">
         <div class="row">
             
-            <div class="panneauGauche col-md-2 offset-md-2">
+            <asp:panel runat="server" class="panneauGauche col-md-2 offset-md-2">
                 <div class="contentGauche">
                     <div class="vignetteGauche">
                         <h3 class="qui">Qui suis-je?</h3>
@@ -47,8 +48,8 @@
                     </div>
                 </div>
                 
-            </div>
-            <div id="panneauArticle" class="panneauArticle col-md-5 offset-md-1 pl-0 pr-0">
+            </asp:panel>
+            <asp:panel runat="server" id="panneauArticle" class="panneauArticle col-md-5 offset-md-1 pl-0 pr-0">
                 <div class="contentDroit ">
                     <div class="vignetteDroite">
                         <div class="photoArticle">
@@ -75,14 +76,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </asp:panel>
             <div class="carouselArticle">
 
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="row">
+    
             <div class="col-md-12  footer">
                 <img class="imgFooter" src="media/nature.jpg" />
                 <img class="imgFooter" src="media/nature.jpg" />
@@ -93,8 +93,7 @@
                 <img class="imgFooter" src="media/nature.jpg" />
                 
             </div>
-        </div>
-    </div>
+   
     
 
 
