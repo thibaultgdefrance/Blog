@@ -33,9 +33,9 @@ namespace Blog
             // prêt pour la production, utilisez l'outil de génération à l'adresse https://modernizr.com pour sélectionner uniquement les tests dont vous avez besoin
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                             "~/Scripts/modernizr-*"));
-            bundles.Add(new ScriptBundle("~/bundles/script").Include(
-                            "~/Scripts/jQuery-*",
-                            "~/Scripts/Script.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/script").Include(
+            //                "~/Scripts/jQuery-*",
+            //                "~/Scripts/Script.js"));
         }
     }
 }

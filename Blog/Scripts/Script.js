@@ -37,14 +37,29 @@ function redirect(url) {
     window.location.replace(url);
 }
 
+$(document).ready(function () {
+    console.log("ok");
 
+    var suite = document.getElementsByClassName("suite");
+    
+    var articleTexte = document.getElementsByClassName("textArticle");
 
+//$("span.suite").each(function () {
+//    console.log($(this));
+//});
 
-var suite = document.getElementsByClassName("suite");
-var articleTexte = document.getElementsByClassName("textArticle");
+    for (var i = 0; i < suite.length; i++) {
 
-for (var i = 0; i < suite.length; i++) {
-    suite[i].addEventListener("click", function red() {
-        console.log("ok "+i);
-    });
+        console.log(suite[i]+i);
+        
+        suite[i].addEventListener("click", function () {
+
+            articleTexte
+            //for (var j = 0; j < t.length; j++) {
+            //    t[j].style.backgroundColor = "red";
+
+            //}
+
+        });
 }
+});
