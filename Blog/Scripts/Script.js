@@ -61,24 +61,8 @@ function enregistrerCommentaire() {
 }
 
 $(document).ready(function () {
-    console.log("ok");
-    
-    
-    //var articleTexte = document.getElementsByClassName("textArticle");
    
-    //var suite = document.getElementsByClassName("suite");
-
-    //for (var i = 0; i < suite.length; i++) {
-        
-        
-    //    var texte = articleTexte[i];
-    //    console.log(texte);
-        
-    //    suite[i].addEventListener("click", function () {
-    //        texte.style.Color = "red";
-        
-    //        console.log(texte);
-
-    //    });
-    //}
+    
+    
+   
 });

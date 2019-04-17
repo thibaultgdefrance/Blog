@@ -20,7 +20,7 @@ namespace Blog
             List<Article> listeArticles2 = new List<Article>();
             listeArticles2 = article.SelectArticle();
             Commentaire commentaire = new Commentaire();
-
+            
             foreach (var item in listeArticles2)
             {
                 int IdArticle = item.IdArticle;
@@ -127,9 +127,10 @@ namespace Blog
                 txtbPassword.CssClass = "Block";
                 TextBox txtbCommentaire= new TextBox();
                 HyperLink buttonCommentaire = new HyperLink();
+                buttonCommentaire.NavigateUrl = "javascript:void(0)";
                 buttonCommentaire.CssClass = "Block";
                 buttonCommentaire.Attributes.Add("onclick", "enregistrerCommentaire()"); 
-                buttonCommentaire.Text = "ajouter Commentaire";
+                buttonCommentaire.Text = "ajouter";
                 txtbCommentaire.TextMode=TextBoxMode.MultiLine;
                 txtbCommentaire.CssClass = "textCommentaire";
                 blocCommentaire.Controls.Add(ajouterUnCommentaire);
@@ -147,8 +148,15 @@ namespace Blog
                 listCommentaire.CssClass = "test";
                 textArticle.Controls.Add(listCommentaire);
 
+                List<Commentaire> listCommentaires2 = new List<Commentaire>();
+                listCommentaires2 = commentaire.listeCommentaire(IdArticle);
+                foreach (var item2 in listCommentaires2)
+                {
+                    HtmlGenericControl truc = new HtmlGenericControl("p");
+                    truc.InnerText = "sqgv<sfd<";
+                    listCommentaire.Controls.Add(truc),
+                }
 
-              
 
 
             }

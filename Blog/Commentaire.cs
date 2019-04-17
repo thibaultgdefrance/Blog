@@ -59,7 +59,7 @@ namespace Blog
                 
                 SqlConnection sqlConnection = new SqlConnection(cnx);
                 sqlConnection.Open();
-                SqlCommand cmd = new SqlCommand("select * from dbo.Commentaire where IdArticle=@IdArticle", sqlConnection);
+                SqlCommand cmd = new SqlCommand("select * from dbo.Commentaire where IdArticle=@IdArticle order by DatePublication DESC ", sqlConnection);
                 cmd.Parameters.AddWithValue("@IdArticle",IdArticle);
                 SqlDataReader reader = cmd.ExecuteReader();
                  
