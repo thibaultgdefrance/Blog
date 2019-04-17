@@ -13,11 +13,13 @@ namespace Blog
         protected void Page_Load(object sender, EventArgs e)
         {
             Article article = new Article();
+            Utilisateur utilisateur = new Utilisateur();
             Rubrique rubrique = new Rubrique();
             Image imageArticle = new Image();
             lbTest.Text = article.SelectArticle().ToString();
             List<Article> listeArticles2 = new List<Article>();
             listeArticles2 = article.SelectArticle();
+            Commentaire commentaire = new Commentaire();
 
             foreach (var item in listeArticles2)
             {
@@ -121,8 +123,9 @@ namespace Blog
                 TextBox txtbTitreCommentaire = new TextBox();
                 txtbPassword.CssClass = "Block";
                 TextBox txtbCommentaire= new TextBox();
-                Button buttonCommentaire = new Button();
+                HyperLink buttonCommentaire = new HyperLink();
                 buttonCommentaire.CssClass = "Block";
+                buttonCommentaire.Attributes.Add("onclick", "enregistrerCommentaire()"); 
                 buttonCommentaire.Text = "ajouter Commentaire";
                 txtbCommentaire.TextMode=TextBoxMode.MultiLine;
                 txtbCommentaire.CssClass = "textCommentaire";
@@ -141,6 +144,8 @@ namespace Blog
                 listCommentaire.CssClass = "test";
                 contentArticle.Controls.Add(listCommentaire);
 
+
+              
 
 
             }

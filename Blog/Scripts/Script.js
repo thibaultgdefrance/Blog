@@ -37,12 +37,21 @@ function redirect(url) {
     window.location.replace(url);
 }
 
+
+function afficherTexte(IdArticle) {
+    var textArticle = document.getElementsByClassName("textArticle");
+    console.log(textArticle[IdArticle] + IdArticle);
+}
+
+function enregistrerCommentaire() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET','\STA6018699\SQLEXPRESS',true);
+    xhr.onload();
+}
+
 $(document).ready(function () {
     console.log("ok");
-    function afficherTexte(IdArticle){
-        var textArticle = document.getElementsByClassName("textArticle");
-        console.log(textArticle[IdArticle] + IdArticle);
-    }
+    
     
     //var articleTexte = document.getElementsByClassName("textArticle");
    
