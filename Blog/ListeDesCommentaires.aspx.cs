@@ -11,9 +11,9 @@ namespace Blog
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int IdArticle = Request.QueryString[1];
+            //int IdArticle = Request.QueryString[1];
             Commentaire commentaire = new Commentaire();
-            commentaire.listeCommentaire(IdArticle);
+            //commentaire.listeCommentaire(IdArticle);
             
         }
         

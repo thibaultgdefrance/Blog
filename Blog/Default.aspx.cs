@@ -23,6 +23,7 @@ namespace Blog
 
             foreach (var item in listeArticles2)
             {
+                int IdArticle = item.IdArticle;
                 Panel contentDroit = new Panel();
                 contentDroit.CssClass = "contentDroit";
                 panneauArticle.Controls.Add(contentDroit);
@@ -70,7 +71,7 @@ namespace Blog
 
 
                 Panel descriptionArticle = new Panel();
-                descriptionArticle.CssClass = "textArticle";
+                descriptionArticle.CssClass = "descriptionArticle";
                 contentArticle.Controls.Add(descriptionArticle);
 
 
@@ -83,12 +84,14 @@ namespace Blog
                 buttonSuite.CssClass = "suite";
                 buttonSuite.Text = "Lire la suite";
                 buttonSuite.NavigateUrl ="javascript:void(0)";
-                buttonSuite.Attributes.Add("onclick", "afficherTexte(" + article.IdArticle + ")");
+                buttonSuite.Attributes.Add("onclick", "afficherTexte(" + IdArticle + ")");
                 contentArticle.Controls.Add(buttonSuite);
 
 
                 Panel textArticle = new Panel();
-                textArticle.CssClass = "texteComplet"+article.IdArticle;
+                textArticle.CssClass = "textArticle";
+                textArticle.ID = "texteComplet"+IdArticle;
+
                 contentArticle.Controls.Add(textArticle);
 
 
@@ -97,7 +100,7 @@ namespace Blog
                 textArticle.Controls.Add(texte);
 
                 Panel blocCommentaire = new Panel();
-                contentArticle.Controls.Add(blocCommentaire);
+                textArticle.Controls.Add(blocCommentaire);
 
 
 
@@ -142,7 +145,7 @@ namespace Blog
 
                 Panel listCommentaire = new Panel();
                 listCommentaire.CssClass = "test";
-                contentArticle.Controls.Add(listCommentaire);
+                textArticle.Controls.Add(listCommentaire);
 
 
               

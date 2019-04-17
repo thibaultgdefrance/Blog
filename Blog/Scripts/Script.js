@@ -38,15 +38,26 @@ function redirect(url) {
 }
 
 
-function afficherTexte(IdArticle) {
-    var textArticle = document.getElementsByClassName("textArticle");
-    console.log(textArticle[IdArticle] + IdArticle);
+function afficherTexte(IdArticle2) {
+    var a = document.getElementById("MainContent_texteComplet" + IdArticle2);
+    if (a.style.display == "block") {
+        a.style.display = "none";
+    } else {
+        a.style.display = "block";
+    }
+    
+    
+    console.log(a);
+    
 }
 
 function enregistrerCommentaire() {
     var xhr = new XMLHttpRequest();
     xhr.open('GET','\STA6018699\SQLEXPRESS',true);
-    xhr.onload();
+    xhr.onload(function () {
+        Request.QueryString[1];
+    });
+    xhr.send();
 }
 
 $(document).ready(function () {

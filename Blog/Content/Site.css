@@ -197,7 +197,7 @@ textarea {
     margin-top:10%;
     height:auto;
 }
-.textArticle{
+.descriptionArticle{
     padding:10px;
     height:150px;
     overflow:hidden;
@@ -210,7 +210,10 @@ textarea {
     border: none;
     margin: 50px;
 }
-
+.textArticle{
+    display:none;
+    
+}
 .textCommentaire{
     width:100%;
     max-width:100%;
