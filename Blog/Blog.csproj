@@ -223,6 +223,7 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Article.cs" />
+    <Compile Include="Commentaire.cs" />
     <Compile Include="connexion.aspx.cs">
       <DependentUpon>connexion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -99,18 +99,49 @@ namespace Blog
 
 
 
-                HtmlGenericControl br = new HtmlGenericControl("br");
-                HtmlGenericControl br2 = new HtmlGenericControl("br");
-                HtmlGenericControl br3 = new HtmlGenericControl("br");
+                
+                Label ajouterUnCommentaire = new Label();
+                ajouterUnCommentaire.CssClass = "Block";
+                Label login = new Label();
+                login.CssClass = "Block";
+                login.Text = "Login";
+                Label password = new Label();
+                password.CssClass = "Block";
+                password.Text = "Password";
+                Label titreCommentaire = new Label();
+                titreCommentaire.CssClass = "Block";
+                titreCommentaire.Text = "Titre";
+
+
+                ajouterUnCommentaire.Text = "Ajouter un commentaire";
                 TextBox txtbLogin = new TextBox();
-                TextBox txtbPassord = new TextBox();
+                txtbLogin.CssClass = "Block";
+                TextBox txtbPassword = new TextBox();
+                txtbPassword.CssClass = "Block";
+                TextBox txtbTitreCommentaire = new TextBox();
+                txtbPassword.CssClass = "Block";
                 TextBox txtbCommentaire= new TextBox();
+                Button buttonCommentaire = new Button();
+                buttonCommentaire.CssClass = "Block";
+                buttonCommentaire.Text = "ajouter Commentaire";
+                txtbCommentaire.TextMode=TextBoxMode.MultiLine;
+                txtbCommentaire.CssClass = "textCommentaire";
+                blocCommentaire.Controls.Add(ajouterUnCommentaire);
+                blocCommentaire.Controls.Add(login);
                 blocCommentaire.Controls.Add(txtbLogin);
-                blocCommentaire.Controls.Add(br);
-                blocCommentaire.Controls.Add(txtbPassord);
-                blocCommentaire.Controls.Add(br2);
+                blocCommentaire.Controls.Add(password);
+                blocCommentaire.Controls.Add(txtbPassword);
+                blocCommentaire.Controls.Add(titreCommentaire);
+                blocCommentaire.Controls.Add(txtbTitreCommentaire);
                 blocCommentaire.Controls.Add(txtbCommentaire);
-                blocCommentaire.Controls.Add(br3);
+                blocCommentaire.Controls.Add(buttonCommentaire);
+
+
+                Panel listCommentaire = new Panel();
+                listCommentaire.CssClass = "test";
+                contentArticle.Controls.Add(listCommentaire);
+
+
 
             }
 

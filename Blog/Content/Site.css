@@ -210,8 +210,22 @@ textarea {
     border: none;
     margin: 50px;
 }
+
+.textCommentaire{
+    width:100%;
+    max-width:100%;
+    height:200px;
+}
+
 .titre {
     font-size: 4em;
+}
+.test{
+    height:100px;
+    background-color:red;
+}
+.Block{
+    display:block;
 }
 .navigation {
     background-color: rgb(255, 205, 12);
