@@ -39,47 +39,78 @@ namespace Blog
                 Panel cadreNoir = new Panel();
                 cadreNoir.CssClass = "cadreNoir";
                 vignetteDroite.Controls.Add(cadreNoir);
+
+
                 Panel vignetteNoire = new Panel();
                 vignetteNoire.CssClass = "vignetteNoire";
                 cadreNoir.Controls.Add(vignetteNoire);
+
+
                 Label rubriqueArticle=new Label();
                 rubriqueArticle.CssClass = "rubriqueArticle";
                 rubriqueArticle.Text = "*"+rubrique.selectRubrique(item.IdRubrique)+"*";
                 vignetteNoire.Controls.Add(rubriqueArticle);
+
+
                 HtmlGenericControl titreArticle = new HtmlGenericControl("p");
                 titreArticle.InnerText = item.Titre;
                 vignetteNoire.Controls.Add(titreArticle);
-                HtmlGenericControl descriptionArticle = new HtmlGenericControl("p");
-                descriptionArticle.InnerText = item.Description;
-                vignetteNoire.Controls.Add(descriptionArticle);
+                
+
                 HtmlGenericControl datePublication = new HtmlGenericControl("p");
                 datePublication.InnerText = article.DatePublication.ToString();
                 vignetteNoire.Controls.Add(datePublication);
+
+
                 Panel contentArticle = new Panel();
                 contentArticle.CssClass = "contentArticle";
                 vignetteDroite.Controls.Add(contentArticle);
-                Panel texteArticle = new Panel();
-                texteArticle.CssClass = "textArticle";
-                contentArticle.Controls.Add(texteArticle);
-                HtmlGenericControl textArticle = new HtmlGenericControl("p");
-                textArticle.InnerText = item.Text;
-                texteArticle.Controls.Add(textArticle);
-                Label buttonSuite = new Label();
+
+
+                Panel descriptionArticle = new Panel();
+                descriptionArticle.CssClass = "textArticle";
+                contentArticle.Controls.Add(descriptionArticle);
+
+
+                HtmlGenericControl descriptionText = new HtmlGenericControl("p");
+                descriptionText.InnerText = item.Description;
+                descriptionArticle.Controls.Add(descriptionText);
+
+
+                HyperLink buttonSuite = new HyperLink();
                 buttonSuite.CssClass = "suite";
                 buttonSuite.Text = "Lire la suite";
+                buttonSuite.NavigateUrl ="javascript:void(0)";
+                buttonSuite.Attributes.Add("onclick", "afficherTexte(" + article.IdArticle + ")");
                 contentArticle.Controls.Add(buttonSuite);
-                //Panel textArticle = new Panel();
-                //textArticle.CssClass = "textArticle";
-                //vignetteDroite.Controls.Add(textArticle);
-                //HtmlGenericControl texte = new HtmlGenericControl("p");
-                //texte.InnerText = item.Text;
-                //textArticle.Controls.Add(texte);
-                //photoArticle.Controls.Add(img);
-                
-                
-                
-                
-                
+
+
+                Panel textArticle = new Panel();
+                textArticle.CssClass = "texteComplet"+article.IdArticle;
+                contentArticle.Controls.Add(textArticle);
+
+
+                HtmlGenericControl texte = new HtmlGenericControl("p");
+                texte.InnerText = item.Text;
+                textArticle.Controls.Add(texte);
+
+                Panel blocCommentaire = new Panel();
+                contentArticle.Controls.Add(blocCommentaire);
+
+
+
+                HtmlGenericControl br = new HtmlGenericControl("br");
+                HtmlGenericControl br2 = new HtmlGenericControl("br");
+                HtmlGenericControl br3 = new HtmlGenericControl("br");
+                TextBox txtbLogin = new TextBox();
+                TextBox txtbPassord = new TextBox();
+                TextBox txtbCommentaire= new TextBox();
+                blocCommentaire.Controls.Add(txtbLogin);
+                blocCommentaire.Controls.Add(br);
+                blocCommentaire.Controls.Add(txtbPassord);
+                blocCommentaire.Controls.Add(br2);
+                blocCommentaire.Controls.Add(txtbCommentaire);
+                blocCommentaire.Controls.Add(br3);
 
             }
 

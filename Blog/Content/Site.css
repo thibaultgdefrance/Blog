@@ -138,14 +138,14 @@ textarea {
 
 .contentDroit {
     
-    height: 100%;
+    height: auto;
     width: 100%;
 }
 
 .vignetteDroite {
     padding:1em;
     width: 100%;
-    height: 600px;
+    height: auto;
     background-color: white;
     box-shadow: 2px 2px 2px 2px grey;
     overflow:hidden;
@@ -154,8 +154,7 @@ textarea {
 
 .photoArticle {
     width: 45%;
-    height: 100%;
-    
+    height: 570px;
     float: left;
     background-position:center;
     background-repeat:no-repeat;
@@ -195,8 +194,8 @@ textarea {
 
 
 .contentArticle{
-    margin-top:30%;
-    height:20px;
+    margin-top:10%;
+    height:auto;
 }
 .textArticle{
     padding:10px;

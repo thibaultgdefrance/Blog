@@ -39,27 +39,26 @@ function redirect(url) {
 
 $(document).ready(function () {
     console.log("ok");
-
-    var suite = document.getElementsByClassName("suite");
+    function afficherTexte(IdArticle){
+        var textArticle = document.getElementsByClassName("textArticle");
+        console.log(textArticle[IdArticle] + IdArticle);
+    }
     
-    var articleTexte = document.getElementsByClassName("textArticle");
+    //var articleTexte = document.getElementsByClassName("textArticle");
+   
+    //var suite = document.getElementsByClassName("suite");
 
-//$("span.suite").each(function () {
-//    console.log($(this));
-//});
-
-    for (var i = 0; i < suite.length; i++) {
-
-        console.log(suite[i]+i);
+    //for (var i = 0; i < suite.length; i++) {
         
-        suite[i].addEventListener("click", function () {
+        
+    //    var texte = articleTexte[i];
+    //    console.log(texte);
+        
+    //    suite[i].addEventListener("click", function () {
+    //        texte.style.Color = "red";
+        
+    //        console.log(texte);
 
-            articleTexte
-            //for (var j = 0; j < t.length; j++) {
-            //    t[j].style.backgroundColor = "red";
-
-            //}
-
-        });
-}
+    //    });
+    //}
 });
