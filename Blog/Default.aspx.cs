@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -147,15 +148,35 @@ namespace Blog
                 Panel listCommentaire = new Panel();
                 listCommentaire.CssClass = "test";
                 textArticle.Controls.Add(listCommentaire);
-
-                List<Commentaire> listCommentaires2 = new List<Commentaire>();
-                listCommentaires2 = commentaire.listeCommentaire(IdArticle);
-                foreach (var item2 in listCommentaires2)
+                SqlDataReader reader = commentaire.listeCommentaire(IdArticle);
+                
+                while (reader.Read())
                 {
-                    HtmlGenericControl truc = new HtmlGenericControl("p");
-                    truc.InnerText = "sqgv<sfd<";
-                    listCommentaire.Controls.Add(truc),
+                    Panel com = new Panel();
+                    com.CssClass = "com";
+                    Label textDeCommentaire = new Label();
+                    Label titreDeCommentaire = new Label();
+                    Label dateCommentaire = new Label();
+                    dateCommentaire.CssClass = "dateCommentaire";
+                    titreDeCommentaire.CssClass = "titreDeCommentaire";
+                    textDeCommentaire.CssClass = "textDeCommentaire";
+                    titreDeCommentaire.Text = reader[1].ToString()+" :";
+                    textDeCommentaire.Text = reader[2].ToString();
+                    dateCommentaire.Text = "ajouter le " + reader[3].ToString();
+                    com.Controls.Add(titreDeCommentaire);
+                    com.Controls.Add(textDeCommentaire);
+                    com.Controls.Add(dateCommentaire);
+                    listCommentaire.Controls.Add(com);
+
                 }
+                //List<Commentaire> listCommentaires2 = new List<Commentaire>();
+                //listCommentaires2 = commentaire.listeCommentaire(IdArticle);
+                //foreach (var item2 in listCommentaires2)
+                //{
+                //    HtmlGenericControl textDeArticle = new HtmlGenericControl("p");
+                //    textDeArticle.InnerText = ;
+                //    listCommentaire.Controls.Add(truc);
+                //}
 
 
 

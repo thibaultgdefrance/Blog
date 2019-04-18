@@ -51,41 +51,36 @@ namespace Blog
             }
         }
 
-        public List<Commentaire> listeCommentaire(int IdArticle)
+        public /*List<Commentaire>*/ SqlDataReader listeCommentaire(int IdArticle)
         {
-            List<Commentaire> listeCommentaires = new List<Commentaire>();
-            try
-            {
-                
+            //List<Commentaire> listeCommentaires = new List<Commentaire>();
+            
+               
                 SqlConnection sqlConnection = new SqlConnection(cnx);
                 sqlConnection.Open();
                 SqlCommand cmd = new SqlCommand("select * from dbo.Commentaire where IdArticle=@IdArticle order by DatePublication DESC ", sqlConnection);
                 cmd.Parameters.AddWithValue("@IdArticle",IdArticle);
                 SqlDataReader reader = cmd.ExecuteReader();
-                 
-                while (reader.Read())
-                {
-                    Commentaire commentaire = new Commentaire();
-                    commentaire.IdCommentaire = Int32.Parse(reader[0].ToString());
-                    commentaire.TitreCommentaire = reader[1].ToString();
-                    commentaire.TexteCommentaire = reader[2].ToString();
-                    commentaire.DatePublication = reader[3].ToString();
-                    commentaire.DateModification = reader[4].ToString();
-                    commentaire.Popularite = Int32.Parse(reader[5].ToString());
-                    commentaire.IdArticle = Int32.Parse(reader[6].ToString());
-                    commentaire.IdStatut = Int32.Parse(reader[7].ToString());
-                    commentaire.IdAuteur = Int32.Parse(reader[8].ToString());
 
+            //while (reader.Read())
+            //{
+            //    Commentaire commentaire = new Commentaire();
+            //    commentaire.IdCommentaire = Int32.Parse(reader[0].ToString());
+            //    commentaire.TitreCommentaire = reader[1].ToString();
+            //    commentaire.TexteCommentaire = reader[2].ToString();
+            //    commentaire.DatePublication = reader[3].ToString();
+            //    commentaire.DateModification = reader[4].ToString();
+            //    commentaire.Popularite = Int32.Parse(reader[5].ToString());
+            //    commentaire.IdArticle = Int32.Parse(reader[6].ToString());
+            //    commentaire.IdStatut = Int32.Parse(reader[7].ToString());
+            //    commentaire.IdAuteur = Int32.Parse(reader[8].ToString());
 
-                    listeCommentaires.Add(commentaire);
-                }
-            }
-            catch (Exception)
-            {
+            //}
+                    //listeCommentaires.Add(commentaire);
+            return reader;
+             
+            //return listeCommentaires;
 
-                throw;
-            }
-            return listeCommentaires;
         }
 
 
