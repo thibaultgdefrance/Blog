@@ -26,22 +26,24 @@ namespace Blog
         
         string cnx = @"Data Source=STA6018699\SQLEXPRESS;Initial Catalog=Blog;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        public void ajouterCommentaire(string Titre,string Texte,string datePublication,string dateModification,int Popularite,int IdArticle,int IdStatut,int IdAuteur,string email,string password)
+        public int ajouterCommentaire(string Titre,string Texte,string datePublication,string dateModification,int Popularite,int IdArticle,int IdStatut,int IdAuteur,string email,string password)
         {
+            SqlConnection sqlConnection = new SqlConnection(cnx);
             try
             {
-                SqlConnection sqlConnection = new SqlConnection(cnx);
+                
                 sqlConnection.Open();
                 SqlCommand cmd2 = new SqlCommand("select IdUtilisateur from dbo.Utilisateur where email=@email AND MotDePasse=@MotDePasse",sqlConnection);
                 cmd2.Parameters.AddWithValue("@email", email);
                 cmd2.Parameters.AddWithValue("@MotDePasse",password);
                 int result = Int32.Parse(cmd2.ExecuteScalar().ToString());
                 sqlConnection.Close();
+                
                 if (result>0)
                 {
-                    SqlConnection sqlConnection2 = new SqlConnection(cnx);
-                    sqlConnection2.Open();
-                    SqlCommand cmd = new SqlCommand("Insert Into dbo.Commentaire(TitreCommentaire,TexteCommentaire,DatePublication,DateModification,Popularite,IdArticle,IdStatut,IdAuteur)values(@TitreCommentaire,@TexteCommentaire,@DatePublication,@DateModification,@Popularite,@IdArticle,@IdStatut,@IdAuteur)", sqlConnection2);
+                    
+                    sqlConnection.Open();
+                    SqlCommand cmd = new SqlCommand("Insert Into dbo.Commentaire(TitreCommentaire,TexteCommentaire,DatePublication,DateModification,Popularite,IdArticle,IdStatut,IdAuteur)values(@TitreCommentaire,@TexteCommentaire,@DatePublication,@DateModification,@Popularite,@IdArticle,@IdStatut,@IdAuteur)", sqlConnection);
 
                     cmd.Parameters.AddWithValue("@TitreCommentaire", Titre);
                     cmd.Parameters.AddWithValue("@TexteCommentaire", Texte);
@@ -53,16 +55,20 @@ namespace Blog
                     cmd.Parameters.AddWithValue("@IdAuteur", result);
                     cmd.ExecuteScalar();
 
-                    sqlConnection2.Close();
+                    sqlConnection.Close();
+                    return 1;
                 }
+                
                 
                 
             }
             catch (Exception)
             {
-                
-                //throw;
+                sqlConnection.Close();
+
             }
+
+            return 0;
         }
 
         public /*List<Commentaire>*/ SqlDataReader listeCommentaire(int IdArticle)

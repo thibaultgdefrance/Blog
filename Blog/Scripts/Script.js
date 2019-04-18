@@ -56,16 +56,20 @@ function enregistrerCommentaire(IdArticle) {
     
 
 
-    var login = $(".Login" + IdArticle);
-    var password = $(".Password" + IdArticle);
-    var titre = $(".Titre" + IdArticle);
-    var texte = $(".texteCommentaire" + IdArticle);
+    var login = $(".Login" + IdArticle).val();
+    var password = $(".Password" + IdArticle).val();
+    var titre = $(".Titre" + IdArticle).val();
+    var texte = $(".texteCommentaire" + IdArticle).val();
     var IdArticle2 = IdArticle;
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            if (xhttp.responseText=="ok") {
+            if (xhttp.responseText == "ok") {
+
+                var newComment = "<div class='com'>< span class='titreDeCommentaire' > génial :</span > <span class='textDeCommentaire'>j'ai trouvé cet article génial, continué comme ça!</span> <span class='dateCommentaire'>ajouter le 18/04/2019 00:00:00</span></div >"
+                
+                $(".blocCommentaire" + IdArticle).html($(".blocCommentaire" + IdArticle).html() + newComment);
 
             }
         }

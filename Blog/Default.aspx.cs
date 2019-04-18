@@ -148,12 +148,15 @@ namespace Blog
 
 
                 Panel listCommentaire = new Panel();
-                listCommentaire.CssClass = "test";
+                listCommentaire.CssClass = "test blocCommentaire"+IdArticle;
                 textArticle.Controls.Add(listCommentaire);
                 SqlDataReader reader = commentaire.listeCommentaire(IdArticle);
                 
                 while (reader.Read())
                 {
+                    Panel autoCom = new Panel();
+                    autoCom.CssClass = "com blocCommentaire"+IdArticle;
+
                     Panel com = new Panel();
                     com.CssClass = "com";
                     Label textDeCommentaire = new Label();
@@ -168,6 +171,7 @@ namespace Blog
                     com.Controls.Add(titreDeCommentaire);
                     com.Controls.Add(textDeCommentaire);
                     com.Controls.Add(dateCommentaire);
+                    listCommentaire.Controls.Add(autoCom);
                     listCommentaire.Controls.Add(com);
 
                 }
