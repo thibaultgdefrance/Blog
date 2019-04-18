@@ -12,19 +12,19 @@ namespace Blog
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            string Titre = "";
-            string Text = "";
+            string Titre = Request.QueryString["titre"];
+            string Text = Request.QueryString["texte"];
             string datePublication = DateTime.Now.ToShortDateString();
             string dateModification = DateTime.Now.ToShortDateString();
             int Popularite = 0;
-            int IdArticle = 4;
+            int IdArticle2 = Int32.Parse(Request.QueryString["IdArticle2"]);
             int IdStatut = 1;
-            int IdAuteur =3;
-
-            //int IdArticle = Request.QueryString[1];
+            int IdAuteur =0;
+            string email = Request.QueryString["login"];
+            string password = Request.QueryString["password"];
             Commentaire commentaire = new Commentaire();
-            //commentaire.listeCommentaire(IdArticle);
-            commentaire.ajouterCommentaire(Titre,Text,datePublication,dateModification,Popularite,IdArticle,IdStatut,IdAuteur);
+            
+            commentaire.ajouterCommentaire(Titre,Text,datePublication,dateModification,Popularite,IdArticle2,IdStatut,IdAuteur,email,password);
         }
          
 

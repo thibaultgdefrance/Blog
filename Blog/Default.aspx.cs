@@ -121,19 +121,20 @@ namespace Blog
 
                 ajouterUnCommentaire.Text = "Ajouter un commentaire";
                 TextBox txtbLogin = new TextBox();
-                txtbLogin.CssClass = "Block";
+                txtbLogin.CssClass = "Block Login"+IdArticle+"";
                 TextBox txtbPassword = new TextBox();
-                txtbPassword.CssClass = "Block";
+                txtbPassword.CssClass = "Block Password"+IdArticle+"";
                 TextBox txtbTitreCommentaire = new TextBox();
-                txtbPassword.CssClass = "Block";
+                txtbTitreCommentaire.CssClass = "Block Titre"+IdArticle+"";
                 TextBox txtbCommentaire= new TextBox();
+                
                 HyperLink buttonCommentaire = new HyperLink();
                 buttonCommentaire.NavigateUrl = "javascript:void(0)";
-                buttonCommentaire.CssClass = "Block";
-                buttonCommentaire.Attributes.Add("onclick", "enregistrerCommentaire()"); 
+                buttonCommentaire.CssClass = "Block control-form"+IdArticle+"";
+                
                 buttonCommentaire.Text = "ajouter";
                 txtbCommentaire.TextMode=TextBoxMode.MultiLine;
-                txtbCommentaire.CssClass = "textCommentaire";
+                txtbCommentaire.CssClass = "textCommentaire texteCommentaire"+IdArticle+"";
                 blocCommentaire.Controls.Add(ajouterUnCommentaire);
                 blocCommentaire.Controls.Add(login);
                 blocCommentaire.Controls.Add(txtbLogin);
@@ -143,6 +144,7 @@ namespace Blog
                 blocCommentaire.Controls.Add(txtbTitreCommentaire);
                 blocCommentaire.Controls.Add(txtbCommentaire);
                 blocCommentaire.Controls.Add(buttonCommentaire);
+                buttonCommentaire.Attributes.Add("onclick","enregistrerCommentaire('" + IdArticle +"')");
 
 
                 Panel listCommentaire = new Panel();
@@ -169,30 +171,13 @@ namespace Blog
                     listCommentaire.Controls.Add(com);
 
                 }
-                //List<Commentaire> listCommentaires2 = new List<Commentaire>();
-                //listCommentaires2 = commentaire.listeCommentaire(IdArticle);
-                //foreach (var item2 in listCommentaires2)
-                //{
-                //    HtmlGenericControl textDeArticle = new HtmlGenericControl("p");
-                //    textDeArticle.InnerText = ;
-                //    listCommentaire.Controls.Add(truc);
-                //}
+                
 
 
 
             }
 
-            //public Panel BlocArticle()
-            //{
-            //    Panel panelBlocArticle = new Panel();
-            //    panelBlocArticle.CssClass = "";
-            //    Panel article1 = new Panel();
-            //    article1.CssClass = "";
-
-            //    Image imageArticle = new Image();
-            //    imageArtic="";
-
-            //}
+            
 
 
 

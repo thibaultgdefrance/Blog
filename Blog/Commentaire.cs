@@ -18,7 +18,7 @@ namespace Blog
         string DatePublication = "";
         string DateModification = "";
         int Popularite = 0;
-        int IdArticle = 0;
+        //int IdArticle = 0;
         int IdStatut = 0;
         int IdAuteur = 0;
 
@@ -26,22 +26,31 @@ namespace Blog
         
         string cnx = @"Data Source=STA6018699\SQLEXPRESS;Initial Catalog=Blog;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        public void ajouterCommentaire(string Titre,string Texte,string datePublication,string dateModification,int Popularite,int IdArticle,int IdStatut,int IdAuteur)
+        public void ajouterCommentaire(string Titre,string Texte,string datePublication,string dateModification,int Popularite,int IdArticle,int IdStatut,int IdAuteur,string email,string password)
         {
             try
             {
                 SqlConnection sqlConnection = new SqlConnection(cnx);
                 sqlConnection.Open();
-                SqlCommand cmd = new SqlCommand("Insert Into dbo.Commentaire(TitreCommentaire,TexteCommentaire,DatePublication,DateModification,Popularite,IdArticle,IdStatut,IdAuteur)values(@TitreCommentaire,@TexteCommentaire,@DatePublication,@DateModification,@Popularite,@IdArticle,@IdStatut,@IdAuteur)", sqlConnection);
-                cmd.Parameters.AddWithValue("@TitreCommentaire",Titre);
-                cmd.Parameters.AddWithValue("@TexteCommentaire",Texte);
-                cmd.Parameters.AddWithValue("@DatePublication",DateTime.Now.ToShortDateString());
-                cmd.Parameters.AddWithValue("@DateModification", DateTime.Now.ToShortDateString());
-                cmd.Parameters.AddWithValue("@Popularite",Popularite);
-                cmd.Parameters.AddWithValue("@IdArticle",IdArticle);
-                cmd.Parameters.AddWithValue("@IdStatut",IdStatut);
-                cmd.Parameters.AddWithValue("@IdAuteur",IdAuteur);
-                cmd.ExecuteNonQuery();
+                SqlCommand cmd2 = new SqlCommand("select IdUtilisateur from dbo.Utilisateur where email=@email AND MotDePasse=@MotDePasse");
+                cmd2.Parameters.AddWithValue("@email", email);
+                cmd2.Parameters.AddWithValue("@MotDePasse",password);
+                int result = Int32.Parse(cmd2.ExecuteScalar().ToString());
+                if (result>0)
+                {
+                    SqlCommand cmd = new SqlCommand("Insert Into dbo.Commentaire(TitreCommentaire,TexteCommentaire,DatePublication,DateModification,Popularite,IdArticle,IdStatut,IdAuteur)values(@TitreCommentaire,@TexteCommentaire,@DatePublication,@DateModification,@Popularite,@IdArticle,@IdStatut,@IdAuteur)", sqlConnection);
+
+                    cmd.Parameters.AddWithValue("@TitreCommentaire", Titre);
+                    cmd.Parameters.AddWithValue("@TexteCommentaire", Texte);
+                    cmd.Parameters.AddWithValue("@DatePublication", DateTime.Now.ToShortDateString());
+                    cmd.Parameters.AddWithValue("@DateModification", DateTime.Now.ToShortDateString());
+                    cmd.Parameters.AddWithValue("@Popularite", Popularite);
+                    cmd.Parameters.AddWithValue("@IdArticle", IdArticle);
+                    cmd.Parameters.AddWithValue("@IdStatut", IdStatut);
+                    cmd.Parameters.AddWithValue("@IdAuteur", result);
+                    cmd.ExecuteNonQuery();
+                }
+                
                 sqlConnection.Close();
             }
             catch (Exception)
