@@ -17,7 +17,7 @@ function verifier(id, LabelId,typeVerif,btnSubmit) {
     }
 }
 
-//alert("ok");
+
 
 function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -30,8 +30,6 @@ var contact = document.getElementById("contact");
 var connection = document.getElementById("connexion");
 var accueil = document.getElementById("accueil");
 
-//accueil.addEventListener("Click", redirect("Default.aspx"),true);
-//connection.addEventListener("click", redirect("connexion.aspx"),true);
 
 
 
@@ -49,23 +47,15 @@ function afficherTexte(IdArticle2) {
     }
     
     
-    console.log(a);
+   
     
 }
 
 function enregistrerCommentaire(IdArticle) {
-    //var xhr = new XMLHttpRequest();
-    //xhr.open('GET','\STA6018699\SQLEXPRESS',true);
-    //xhr.onload(function () {
-        
-    //});
-    //xhr.send();
-    //Response.Redirect("ListeDesCommentaire.aspx ?IdArticle=" + IdArticle + "titreCommentaire=" + titreCommentaire + "textCommentaire=" + textCommentaire);
-    //$.ajax; {
-    //    Response.Redirect("ListeDesCommentaire.aspx ?IdArticle=" + IdArticle + "?titreCommentaire=" + titreCommentaire + "?textCommentaire=" + textCommentaire+"?Login="+email+"?password="+password+);
-    //    url = ListeDesCommentaires.aspx;
 
-    //}
+    
+
+
     var login = $(".Login" + IdArticle);
     var password = $(".Password" + IdArticle);
     var titre = $(".Titre" + IdArticle);
@@ -80,7 +70,7 @@ function enregistrerCommentaire(IdArticle) {
             }
         }
     }
-    xhttp.open("GET", "ListeDesCommentaires.aspx?titre=" + titre + "&texte=" + texte + "&login=" + login + "&password=" + password + "&IdArticle2" + IdArticle2 +"", true);
+    xhttp.open("GET", "ListeDesCommentaires.aspx?titre=" + titre + "&texte=" + texte + "&login=" + login + "&password=" + password + "&IdArticle2=" + IdArticle2 +"", true);
     xhttp.send();
 }
 

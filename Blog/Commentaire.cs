@@ -32,13 +32,16 @@ namespace Blog
             {
                 SqlConnection sqlConnection = new SqlConnection(cnx);
                 sqlConnection.Open();
-                SqlCommand cmd2 = new SqlCommand("select IdUtilisateur from dbo.Utilisateur where email=@email AND MotDePasse=@MotDePasse");
+                SqlCommand cmd2 = new SqlCommand("select IdUtilisateur from dbo.Utilisateur where email=@email AND MotDePasse=@MotDePasse",sqlConnection);
                 cmd2.Parameters.AddWithValue("@email", email);
                 cmd2.Parameters.AddWithValue("@MotDePasse",password);
                 int result = Int32.Parse(cmd2.ExecuteScalar().ToString());
+                sqlConnection.Close();
                 if (result>0)
                 {
-                    SqlCommand cmd = new SqlCommand("Insert Into dbo.Commentaire(TitreCommentaire,TexteCommentaire,DatePublication,DateModification,Popularite,IdArticle,IdStatut,IdAuteur)values(@TitreCommentaire,@TexteCommentaire,@DatePublication,@DateModification,@Popularite,@IdArticle,@IdStatut,@IdAuteur)", sqlConnection);
+                    SqlConnection sqlConnection2 = new SqlConnection(cnx);
+                    sqlConnection2.Open();
+                    SqlCommand cmd = new SqlCommand("Insert Into dbo.Commentaire(TitreCommentaire,TexteCommentaire,DatePublication,DateModification,Popularite,IdArticle,IdStatut,IdAuteur)values(@TitreCommentaire,@TexteCommentaire,@DatePublication,@DateModification,@Popularite,@IdArticle,@IdStatut,@IdAuteur)", sqlConnection2);
 
                     cmd.Parameters.AddWithValue("@TitreCommentaire", Titre);
                     cmd.Parameters.AddWithValue("@TexteCommentaire", Texte);
@@ -48,15 +51,17 @@ namespace Blog
                     cmd.Parameters.AddWithValue("@IdArticle", IdArticle);
                     cmd.Parameters.AddWithValue("@IdStatut", IdStatut);
                     cmd.Parameters.AddWithValue("@IdAuteur", result);
-                    cmd.ExecuteNonQuery();
+                    cmd.ExecuteScalar();
+
+                    sqlConnection2.Close();
                 }
                 
-                sqlConnection.Close();
+                
             }
             catch (Exception)
             {
                 
-                throw;
+                //throw;
             }
         }
 
@@ -65,11 +70,11 @@ namespace Blog
             //List<Commentaire> listeCommentaires = new List<Commentaire>();
             
                
-                SqlConnection sqlConnection = new SqlConnection(cnx);
-                sqlConnection.Open();
-                SqlCommand cmd = new SqlCommand("select * from dbo.Commentaire where IdArticle=@IdArticle order by DatePublication DESC ", sqlConnection);
-                cmd.Parameters.AddWithValue("@IdArticle",IdArticle);
-                SqlDataReader reader = cmd.ExecuteReader();
+                SqlConnection sqlConnection3 = new SqlConnection(cnx);
+                sqlConnection3.Open();
+                SqlCommand cmd3 = new SqlCommand("select * from dbo.Commentaire where IdArticle=@IdArticle order by DatePublication ASC ", sqlConnection3);
+                cmd3.Parameters.AddWithValue("@IdArticle",IdArticle);
+                SqlDataReader reader = cmd3.ExecuteReader();
 
             //while (reader.Read())
             //{

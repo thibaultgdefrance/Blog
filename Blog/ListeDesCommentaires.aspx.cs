@@ -22,6 +22,7 @@ namespace Blog
             int IdAuteur =0;
             string email = Request.QueryString["login"];
             string password = Request.QueryString["password"];
+
             Commentaire commentaire = new Commentaire();
             
             commentaire.ajouterCommentaire(Titre,Text,datePublication,dateModification,Popularite,IdArticle2,IdStatut,IdAuteur,email,password);
