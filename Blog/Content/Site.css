@@ -242,10 +242,21 @@ textarea {
     height: auto;
     
 }
-
+.masquerCommentaire{
+    
+}
+.masquer{
+    height:0px;
+    display:none;
+}
 
 
 .Block{
+    display:block;
+}
+
+
+.cm{
     display:block;
 }
 .navigation {

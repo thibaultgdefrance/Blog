@@ -51,7 +51,26 @@ function afficherTexte(IdArticle2) {
     
 }
 
-function enregistrerCommentaire(IdArticle) {
+
+function masquerCommentaire(IdCommentaire2) {
+
+    //var comAMasquer = $(".cm" + IdCommentaire2);
+    var comAMasquer = document.getElementById("MainContent_cm"+IdCommentaire2);
+    
+    console.log(IdCommentaire2 + typeof (comAMasquer));
+    console.log(comAMasquer);
+    comAMasquer.style.display = "none";
+
+   
+    
+   
+    
+    
+
+}
+
+
+function enregistrerCommentaire(IdArticle,Titre,Texte,Date) {
 
     
 
@@ -65,12 +84,15 @@ function enregistrerCommentaire(IdArticle) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            if (xhttp.responseText == "ok") {
+            if (xhttp.responseText != "ok") {
 
-                var newComment = "<div class='com'>< span class='titreDeCommentaire' > génial :</span > <span class='textDeCommentaire'>j'ai trouvé cet article génial, continué comme ça!</span> <span class='dateCommentaire'>ajouter le 18/04/2019 00:00:00</span></div >"
+                var newComment = "<div class='com'><span class='titreDeCommentaire' > " + Titre + ":</span > <span class='textDeCommentaire'>" + Texte + "</span> <span class='dateCommentaire'>ajouter le " + Date + "</span></div >";
+                //$("#MainContent_autoCom" + IdArticle).html($(".blocCommentaire" + IdArticle).html() + newComment);
+                var autoCom = document.getElementById("MainContent_autoCom" + IdArticle);
+                autoCom.style.backgroundColor = "red";
+                autoCom.innerHTML = newComment;
+                //autoCom.html($(".blocCommentaire" + IdArticle).html() + newComment);
                 
-                $(".blocCommentaire" + IdArticle).html($(".blocCommentaire" + IdArticle).html() + newComment);
-
             }
         }
     }

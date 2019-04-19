@@ -144,24 +144,33 @@ namespace Blog
                 blocCommentaire.Controls.Add(txtbTitreCommentaire);
                 blocCommentaire.Controls.Add(txtbCommentaire);
                 blocCommentaire.Controls.Add(buttonCommentaire);
-                buttonCommentaire.Attributes.Add("onclick","enregistrerCommentaire('" + IdArticle +"')");
+                buttonCommentaire.Attributes.Add("onclick","enregistrerCommentaire('" + IdArticle +"','"+txtbTitreCommentaire.Text+"','"+txtbCommentaire.Text+"','"+DateTime.Now+"')");
 
 
                 Panel listCommentaire = new Panel();
                 listCommentaire.CssClass = "test blocCommentaire"+IdArticle;
                 textArticle.Controls.Add(listCommentaire);
                 SqlDataReader reader = commentaire.listeCommentaire(IdArticle);
-                
+                Panel autoCom = new Panel();
+                autoCom.CssClass = "com autoCom" + IdArticle;
+                autoCom.ID = "autoCom" + IdArticle;
+                listCommentaire.Controls.Add(autoCom);
                 while (reader.Read())
                 {
-                    Panel autoCom = new Panel();
-                    autoCom.CssClass = "com blocCommentaire"+IdArticle;
 
+                    int IdCommentaire = Int32.Parse(reader[0].ToString());
                     Panel com = new Panel();
-                    com.CssClass = "com";
+                    com.CssClass = "com cm"+IdCommentaire;
+                    com.ID = "cm"+IdCommentaire;
                     Label textDeCommentaire = new Label();
                     Label titreDeCommentaire = new Label();
                     Label dateCommentaire = new Label();
+                    HyperLink masquerCommentaire = new HyperLink();
+                    masquerCommentaire.NavigateUrl = "javascript:void(0)";
+                    masquerCommentaire.CssClass = "masquerCommentaire ";
+                    masquerCommentaire.ID = "cm" + IdCommentaire;
+                    masquerCommentaire.Text = "masquer commentaire";
+                    masquerCommentaire.Attributes.Add("onclick", "masquerCommentaire('" + IdCommentaire + "')");
                     dateCommentaire.CssClass = "dateCommentaire";
                     titreDeCommentaire.CssClass = "titreDeCommentaire";
                     textDeCommentaire.CssClass = "textDeCommentaire";
@@ -171,7 +180,8 @@ namespace Blog
                     com.Controls.Add(titreDeCommentaire);
                     com.Controls.Add(textDeCommentaire);
                     com.Controls.Add(dateCommentaire);
-                    listCommentaire.Controls.Add(autoCom);
+                    com.Controls.Add(masquerCommentaire);
+                    
                     listCommentaire.Controls.Add(com);
 
                 }
