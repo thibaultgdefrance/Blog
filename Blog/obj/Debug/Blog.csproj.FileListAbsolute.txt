@@ -151,4 +151,3 @@ C:\inetpub\wwwroot\Blog\Blog\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatf
 C:\inetpub\wwwroot\Blog\Blog\bin\fr\System.Web.Optimization.resources.dll
 C:\inetpub\wwwroot\Blog\Blog\bin\fr\Microsoft.AspNet.FriendlyUrls.resources.dll
 C:\inetpub\wwwroot\Blog\Blog\obj\Debug\Blog.csproj.CopyComplete
-C:\inetpub\wwwroot\Blog\Blog\obj\Debug\Blog.csprojAssemblyReference.cache

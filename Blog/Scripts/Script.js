@@ -84,13 +84,14 @@ function enregistrerCommentaire(IdArticle,Titre,Texte,Date) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            if (xhttp.responseText != "ok") {
+            if (xhttp.responseText == "ok") {
 
-                var newComment = "<div class='com'><span class='titreDeCommentaire' > " + Titre + ":</span > <span class='textDeCommentaire'>" + Texte + "</span> <span class='dateCommentaire'>ajouter le " + Date + "</span></div >";
+                console.log(newComment + $(".blocCommentaire" + IdArticle).html());
+                var newComment = "<div id='MainContent_cm"+IdArticle+"' class='com cm"+IdArticle+"'><span class='titreDeCommentaire' > " + titre + ":</span > <span class='textDeCommentaire'>" +texte + "</span> <span class='dateCommentaire'>ajouter le " + Date + "</span></div>";
                 //$("#MainContent_autoCom" + IdArticle).html($(".blocCommentaire" + IdArticle).html() + newComment);
-                var autoCom = document.getElementById("MainContent_autoCom" + IdArticle);
-                autoCom.style.backgroundColor = "red";
-                autoCom.innerHTML = newComment;
+                $(".blocCommentaire" + IdArticle).html(newComment + $(".blocCommentaire" + IdArticle).html());
+                //autoCom.style.backgroundColor = "red";
+               
                 //autoCom.html($(".blocCommentaire" + IdArticle).html() + newComment);
                 
             }

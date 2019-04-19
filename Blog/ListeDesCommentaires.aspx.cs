@@ -26,6 +26,7 @@ namespace Blog
             Commentaire commentaire = new Commentaire();
             
             commentaire.ajouterCommentaire(Titre,Text,datePublication,dateModification,Popularite,IdArticle2,IdStatut,IdAuteur,email,password);
+            Response.Write("ok");
         }
          
 

@@ -127,7 +127,7 @@ namespace Blog
                 TextBox txtbTitreCommentaire = new TextBox();
                 txtbTitreCommentaire.CssClass = "Block Titre"+IdArticle+"";
                 TextBox txtbCommentaire= new TextBox();
-                
+                txtbCommentaire.CssClass = "Texte" + IdArticle;
                 HyperLink buttonCommentaire = new HyperLink();
                 buttonCommentaire.NavigateUrl = "javascript:void(0)";
                 buttonCommentaire.CssClass = "Block control-form"+IdArticle+"";
